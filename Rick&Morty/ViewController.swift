@@ -21,16 +21,14 @@ class ViewController: UIViewController {
         let repository: IRepository = RepositoryImp(remote: remote)
         let getCharactersUseCase: GetCharactersUseCase = GetCharactersUseCase(repository: repository)
             
-        disposeBag.insert(
-            getCharactersUseCase
-                .execute()
-                .subscribe(onSuccess: { characters in
-                    characters.forEach { c in
-                        print("\(c)")
-                    }
-                }){ error in
-                    print("\(error)")
-            }
-        )
+        getCharactersUseCase
+            .execute()
+            .subscribe(onSuccess: { characters in
+                characters.forEach { c in
+                    print("\(c)")
+                }
+            }){ error in
+                print("\(error)")
+            }.disposed(by: disposeBag)
     }
 }

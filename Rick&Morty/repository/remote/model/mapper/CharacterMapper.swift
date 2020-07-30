@@ -19,6 +19,6 @@ struct CharacterMapper: Mapper {
     }
     
     func inverseMap(model: Character) -> Result {
-        
+        fatalError("This method must be overridden")
     }
 }

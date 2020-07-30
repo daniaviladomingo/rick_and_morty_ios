@@ -17,6 +17,7 @@ class RemoteImp: IRemote {
     
     init(endPoint: String, mapper: CharacterMapper) {
         self.endPoint = endPoint
+        self.mapper = mapper
     }
     
     func getCharacters() -> Single<Array<Character>> {

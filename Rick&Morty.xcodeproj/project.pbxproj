@@ -26,6 +26,8 @@
 		706BF86124D2E85B008751B6 /* RemoteImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF86024D2E85B008751B6 /* RemoteImp.swift */; };
 		706BF86424D2ED7C008751B6 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF86324D2ED7C008751B6 /* CharactersResponse.swift */; };
 		706BF86724D2ED9C008751B6 /* CharacterMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF86624D2ED9C008751B6 /* CharacterMapper.swift */; };
+		706BF86B24D30A72008751B6 /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF86A24D30A72008751B6 /* types.swift */; };
+		706BF86D24D30D05008751B6 /* GetCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF86C24D30D05008751B6 /* GetCharactersUseCase.swift */; };
 		9A61385043201713725D5D1C /* Pods_Rick_Morty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CA3D7EA6B2A4B7B2C0A496 /* Pods_Rick_Morty.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		706BF86024D2E85B008751B6 /* RemoteImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImp.swift; sourceTree = "<group>"; };
 		706BF86324D2ED7C008751B6 /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		706BF86624D2ED9C008751B6 /* CharacterMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMapper.swift; sourceTree = "<group>"; };
+		706BF86A24D30A72008751B6 /* types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = types.swift; sourceTree = "<group>"; };
+		706BF86C24D30D05008751B6 /* GetCharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharactersUseCase.swift; sourceTree = "<group>"; };
 		9F3D9C7A8A202D6799B15288 /* Pods-Rick&Morty-Rick&MortyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&Morty-Rick&MortyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rick&Morty-Rick&MortyUITests/Pods-Rick&Morty-Rick&MortyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E742320CC062FD68A8FB06F1 /* Pods-Rick&MortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&MortyTests.release.xcconfig"; path = "Target Support Files/Pods-Rick&MortyTests/Pods-Rick&MortyTests.release.xcconfig"; sourceTree = "<group>"; };
 		F1B1A9EE4B6E952C074446EB /* Pods_Rick_Morty_Rick_MortyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rick_Morty_Rick_MortyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +186,7 @@
 		706BF85124D2E6EE008751B6 /* domain */ = {
 			isa = PBXGroup;
 			children = (
+				706BF86824D3096B008751B6 /* interactors */,
 				706BF85424D2E71B008751B6 /* model */,
 				706BF85224D2E6FD008751B6 /* IRepository.swift */,
 			);
@@ -239,6 +244,15 @@
 				706BF86624D2ED9C008751B6 /* CharacterMapper.swift */,
 			);
 			path = mapper;
+			sourceTree = "<group>";
+		};
+		706BF86824D3096B008751B6 /* interactors */ = {
+			isa = PBXGroup;
+			children = (
+				706BF86A24D30A72008751B6 /* types.swift */,
+				706BF86C24D30D05008751B6 /* GetCharactersUseCase.swift */,
+			);
+			path = interactors;
 			sourceTree = "<group>";
 		};
 		9D46BEBCCF5E071C48CA4C7B /* Frameworks */ = {
@@ -496,11 +510,13 @@
 				706BF82224D2D5F8008751B6 /* Rick_Morty.xcdatamodeld in Sources */,
 				706BF86124D2E85B008751B6 /* RemoteImp.swift in Sources */,
 				706BF85C24D2E830008751B6 /* RepositoryImp.swift in Sources */,
+				706BF86B24D30A72008751B6 /* types.swift in Sources */,
 				706BF86724D2ED9C008751B6 /* CharacterMapper.swift in Sources */,
 				706BF85624D2E72C008751B6 /* Character.swift in Sources */,
 				706BF86424D2ED7C008751B6 /* CharactersResponse.swift in Sources */,
 				706BF85F24D2E851008751B6 /* IRemote.swift in Sources */,
 				706BF81A24D2D5F8008751B6 /* SceneDelegate.swift in Sources */,
+				706BF86D24D30D05008751B6 /* GetCharactersUseCase.swift in Sources */,
 				706BF85324D2E6FD008751B6 /* IRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

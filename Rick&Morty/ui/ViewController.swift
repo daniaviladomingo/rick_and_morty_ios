@@ -14,6 +14,7 @@ class ViewController: UIViewController, IView {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Llamo presenter 1 \(presenter)")
+        buildUI()
         presenter?.loadCharacters()
         print("Llamo presenter 2")
     }
@@ -22,5 +23,10 @@ class ViewController: UIViewController, IView {
         characters.forEach { character in
             print("\(character)")
         }
+    }
+    
+    private func buildUI() {
+        view.backgroundColor = .white
+        definesPresentationContext = true
     }
 }

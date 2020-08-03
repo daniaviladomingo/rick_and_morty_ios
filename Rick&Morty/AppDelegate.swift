@@ -15,13 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       window = UIWindow(frame: UIScreen.main.bounds)
 
-        if let window = window {
-            let view = Route.createModule()
-            window.rootViewController = view
-            window.makeKeyAndVisible()
-        }
+        let view = Router.createModule()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = view
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

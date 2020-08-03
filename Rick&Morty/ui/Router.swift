@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Route: IRoute {
+class Router: IRoute {
     static func createModule() -> UIViewController {
         let charactersMapper: CharacterMapper = CharacterMapper()
         let remote: IRemote = RemoteImp(endPoint: "https://rickandmortyapi.com/api/", mapper: charactersMapper)

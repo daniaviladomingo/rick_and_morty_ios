@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class GetCharactersUseCase: SingleUseCase {
+class GetCharactersUseCase: SingleUseCase {    
     private let repository: IRepository
     
     init(repository: IRepository) {

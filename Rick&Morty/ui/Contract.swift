@@ -14,7 +14,7 @@ protocol IPresenter: class {
 
 protocol IView: class {
     var presenter: IPresenter? { get set }
-    func showCharacters(characters: Array<Character>)
+    func showCharacters(characters: [Character])
 }
 
 protocol IRoute: class {

@@ -22,7 +22,6 @@ class PresenterImp: IPresenter {
     }
     
     func loadCharacters() {
-        print("loado caracteres")
         getCharactersUseCase
             .execute()
             .subscribe(onSuccess: { characters in
@@ -30,5 +29,10 @@ class PresenterImp: IPresenter {
             }){ error in
                 print("\(error)")
             }.disposed(by: disposeBag)
+    }
+    
+    
+    deinit {
+        print("is being deinitialized")
     }
 }

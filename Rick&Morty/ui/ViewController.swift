@@ -8,22 +8,13 @@
 
 import UIKit
 
-final class ViewController: UIViewController, IView {
-//    var presenter: IPresenter?
-        
-    var presenter: IPresenter? {
-        didSet {
-            print("didSet \(oldValue)")
-        }
-        willSet {
-            print("willSet \(newValue)")
-        }
-    }
+class ViewController: UIViewController, IView {
+    var presenter: IPresenter?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Llamo presenter 1 \(presenter)")
-        self.presenter?.loadCharacters()
+        presenter?.loadCharacters()
         print("Llamo presenter 2")
     }
     

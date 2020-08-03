@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class RepositoryImp: IRepository{
+class RepositoryImp: IRepository {
     
     private let remote: IRemote
     

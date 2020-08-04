@@ -13,15 +13,13 @@ class ViewController: UIViewController, IView {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Llamo presenter 1 \(presenter)")
         buildUI()
         presenter?.loadCharacters()
-        print("Llamo presenter 2")
     }
     
     func showCharacters(characters: Array<Character>) {
         characters.forEach { character in
-            print("\(character)")
+            print("-> \(character)")
         }
     }
     

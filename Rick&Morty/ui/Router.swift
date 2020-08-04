@@ -19,16 +19,11 @@ class Router: IRoute {
         let view: IView = ViewController()
         let presenter: IPresenter = PresenterImp(view: view, getCharactersUseCase: getCharactersUseCase)
 
-        print("Pongo presenter 1")
         view.presenter = presenter
                 
-        print("Pongo presenter 2")
-    
+        let navigationController = UINavigationController()
+        navigationController.viewControllers = [view as! UIViewController]
         
-        print("\(view.presenter)")
-        
-//        view.presenter = nil
-        
-        return UINavigationController(rootViewController: view as! UIViewController)
+        return navigationController
     }
 }

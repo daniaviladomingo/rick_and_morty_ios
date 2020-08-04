@@ -30,8 +30,7 @@ class PresenterImp: IPresenter {
                 print("\(error)")
             }.disposed(by: disposeBag)
     }
-    
-    
+        
     deinit {
         print("is being deinitialized")
     }

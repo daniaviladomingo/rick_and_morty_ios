@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, IView {
     var presenter: IPresenter?
+    
+    private let tableView = UITableView()
+    private var characters: [Character]?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,14 +20,50 @@ class ViewController: UIViewController, IView {
         presenter?.loadCharacters()
     }
     
-    func showCharacters(characters: Array<Character>) {
-        characters.forEach { character in
-            print("-> \(character)")
-        }
+    func showCharacters(characters: [Character]) {
+        self.characters = characters
+        tableView.reloadData()
     }
     
     private func buildUI() {
         view.backgroundColor = .white
         definesPresentationContext = true
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.register(CharacterViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        navigationItem.title = "Rick & Morty"
+    }
+}
+
+extension ViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return characters?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let character = characters?[indexPath.row] else { return CharacterViewCell() }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CharacterViewCell
+        
+        cell.character = character
+        
+//        cell.textLabel?.text = character.name
+//        cell.imageView?.load(url: URL(string: character.image)!)
+                
+        return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("pulso \(indexPath.row)")
     }
 }

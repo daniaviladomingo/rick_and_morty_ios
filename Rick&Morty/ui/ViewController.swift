@@ -54,9 +54,6 @@ extension ViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CharacterViewCell
         
         cell.character = character
-        
-//        cell.textLabel?.text = character.name
-//        cell.imageView?.load(url: URL(string: character.image)!)
                 
         return cell
     }
@@ -65,5 +62,9 @@ extension ViewController: UITableViewDataSource{
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("pulso \(indexPath.row)")
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }

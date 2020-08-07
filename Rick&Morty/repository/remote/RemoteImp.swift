@@ -36,4 +36,21 @@ class RemoteImp: IRemote {
             return Disposables.create()
         }
     }
+    
+    func getCharacter(id: Int) -> Single<Character> {
+        return Single<Character>.create { observer in
+            AF.request("\(self.endPoint)character/\(id)").responseDecodable(of: CharacterApi.self) { response in
+                switch response.result {
+                    case .success(let value):
+                        observer(.success(self.mapper.map(model: value)))
+                    break
+                                        
+                    case .failure(let error):
+                        observer(.error(error))
+                    break
+                }
+            }
+            return Disposables.create()
+        }
+    }
 }

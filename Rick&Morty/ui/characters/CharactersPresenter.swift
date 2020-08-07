@@ -6,18 +6,19 @@
 //  Copyright © 2020 Daniel Ávila Domingo. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 
-class PresenterImp: IPresenter {
+class CharactersPresenterImp: IPresenterCharacters {
     private let disposeBag = DisposeBag()
     
-    private let view: IView
-    
+    private let view: IViewCharacters
+    private let router: IRouterCharacters
+
     private let getCharactersUseCase: GetCharactersUseCase
     
-    init(view: IView, getCharactersUseCase: GetCharactersUseCase) {
+    init(view: IViewCharacters, router: IRouterCharacters, getCharactersUseCase: GetCharactersUseCase) {
         self.getCharactersUseCase = getCharactersUseCase
+        self.router = router
         self.view = view
     }
     
@@ -30,8 +31,8 @@ class PresenterImp: IPresenter {
                 print("\(error)")
             }.disposed(by: disposeBag)
     }
-        
-    deinit {
-        print("is being deinitialized")
+    
+    func showCharacterDetail(id: Int) {
+        router.navigateToCharacterDetail(id: id)
     }
 }

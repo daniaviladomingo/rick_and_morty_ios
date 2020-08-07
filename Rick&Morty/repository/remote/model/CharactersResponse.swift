@@ -5,12 +5,11 @@
 //  Created by Daniel Ávila Domingo on 29/07/2020.
 //  Copyright © 2020 Daniel Ávila Domingo. All rights reserved.
 //
-
 import Foundation
 
 struct CharactersResponse: Codable {
     let info: Info
-    let results: [Result]
+    let results: [CharacterApi]
 }
 
 struct Info: Codable {
@@ -19,10 +18,10 @@ struct Info: Codable {
     let prev: String?
 }
 
-struct Result: Codable {
+struct CharacterApi: Codable {
     let id: Int
     let name: String
-    let status: Status
+    let status: ApiStatus
     let species: Species
     let type: String
     let gender: Gender
@@ -49,7 +48,7 @@ enum Species: String, Codable {
     case human = "Human"
 }
 
-enum Status: String, Codable {
+enum ApiStatus: String, Codable {
     case alive = "Alive"
     case dead = "Dead"
     case unknown = "unknown"

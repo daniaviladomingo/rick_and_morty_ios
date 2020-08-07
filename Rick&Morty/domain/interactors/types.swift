@@ -13,3 +13,9 @@ protocol SingleUseCase {
     associatedtype T
     func execute() -> Single<T>
 }
+
+protocol SingleUseCaseWithParameter {
+    associatedtype E
+    associatedtype T
+    func execute(parameter: E) -> Single<T>
+}

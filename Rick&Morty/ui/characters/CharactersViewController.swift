@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, IView {
-    var presenter: IPresenter?
+class CharactersViewController: UIViewController, IViewCharacters {
+    var presenter: IPresenterCharacters?
     
     private let tableView = UITableView()
     private var characters: [Character]?
@@ -43,7 +43,7 @@ class ViewController: UIViewController, IView {
     }
 }
 
-extension ViewController: UITableViewDataSource{
+extension CharactersViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters?.count ?? 0
     }
@@ -59,9 +59,11 @@ extension ViewController: UITableViewDataSource{
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension CharactersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("pulso \(indexPath.row)")
+        if let character = characters?[indexPath.row] {
+            presenter?.showCharacterDetail(id: character.id)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

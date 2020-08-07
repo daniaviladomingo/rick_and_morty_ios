@@ -10,15 +10,27 @@ import Foundation
 
 struct CharacterMapper: Mapper {
     
-    typealias IN = Result
+    typealias IN = CharacterApi
     
     typealias OUT = Character
     
-    func map(model: Result) -> Character {
-        return Character(id: model.id, name: model.name, image: model.image)
+    func map(model: CharacterApi) -> Character {
+        let status: Status = {
+            switch model.status {
+            case .alive:
+                return Status.ALIVE
+            case .dead:
+                return Status.DEAD
+            case .unknown:
+                return Status.UNKNOWN
+                
+            }
+        }()
+        
+        return Character(id: model.id, name: model.name, image: model.image, status: status, species: model.species.rawValue, origin: model.origin.name )
     }
     
-    func inverseMap(model: Character) -> Result {
+    func inverseMap(model: Character) -> CharacterApi {
         fatalError("This method must be overridden")
     }
 }

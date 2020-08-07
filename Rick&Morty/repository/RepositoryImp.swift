@@ -10,7 +10,6 @@ import Foundation
 import RxSwift
 
 class RepositoryImp: IRepository {
-    
     private let remote: IRemote
     
     init(remote: IRemote) {
@@ -19,5 +18,9 @@ class RepositoryImp: IRepository {
     
     func getCharacters() -> Single<Array<Character>> {
         return remote.getCharacters()
+    }
+    
+    func getCharacter(id: Int) -> Single<Character> {
+        return remote.getCharacter(id: id)
     }
 }

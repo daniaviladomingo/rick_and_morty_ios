@@ -11,5 +11,6 @@ import RxSwift
 
 protocol IRepository {
     func getCharacters() -> Single<Array<Character>>
+    func getCharacter(id: Int) -> Single<Character>
 }
 

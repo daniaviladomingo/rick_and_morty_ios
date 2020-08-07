@@ -11,4 +11,5 @@ import RxSwift
 
 protocol IRemote {
     func getCharacters() -> Single<Array<Character>>
+    func getCharacter(id: Int) -> Single<Character>
 }

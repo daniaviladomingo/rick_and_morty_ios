@@ -8,6 +8,15 @@
 
 import UIKit
 
+protocol IPresenterCharacter: class {
+    func loadCharacter(id: Int)
+    func addToFavorite(character: Character)
+}
+
+protocol IViewCharacter: class {
+    var presenter: IPresenterCharacter? { get set }
+}
+
 protocol IRouterCharacter: class {
     static func createModule(navigationController: UINavigationController) -> UIViewController
 }

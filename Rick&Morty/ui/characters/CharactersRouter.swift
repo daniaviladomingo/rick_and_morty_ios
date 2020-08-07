@@ -16,20 +16,22 @@ class CharactersRouter: IRouterCharacters {
         self.navigationController = navigationController
     }
     
-    static func createModule(navigationController: UINavigationController) -> UIViewController {
+    static func createModule() -> UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let getCharactersUseCase: GetCharactersUseCase = GetCharactersUseCase(repository: appDelegate.repository)
         
+        let nvc: UINavigationController = UINavigationController()
+        
         let view: IViewCharacters = CharactersViewController()
-        let router: IRouterCharacters = CharactersRouter(navigationController: navigationController)
+        let router: IRouterCharacters = CharactersRouter(navigationController: nvc)
         let presenter: IPresenterCharacters = CharactersPresenterImp(view: view, router: router, getCharactersUseCase: getCharactersUseCase)
 
         view.presenter = presenter
+    
+        nvc.viewControllers = [view as! UIViewController]
         
-        navigationController.viewControllers = [view as! UIViewController]
-        
-        return navigationController
+        return nvc
     }
     
     func navigateToCharacterDetail(id: Int) {

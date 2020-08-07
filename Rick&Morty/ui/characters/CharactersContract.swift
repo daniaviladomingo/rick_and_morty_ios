@@ -19,6 +19,6 @@ protocol IViewCharacters: class {
 }
 
 protocol IRouterCharacters: class {
-    static func createModule(navigationController: UINavigationController) -> UIViewController
+    static func createModule() -> UIViewController
     func navigateToCharacterDetail(id: Int)
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CharacterPresenter: IPresenterCharacter {
+class PresenterCharacter: IPresenterCharacter {
     func loadCharacter(id: Int) {
         
     }

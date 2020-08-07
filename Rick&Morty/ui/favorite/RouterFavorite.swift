@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteRouter: IRouterFavorite {
+class RouterFavorite: IRouterFavorite {
     
     private let navigationController: UINavigationController
     
@@ -18,7 +18,7 @@ class FavoriteRouter: IRouterFavorite {
     
     static func createModule() -> UIViewController {
         let nvc: UINavigationController = UINavigationController()
-        let view: FavoriteViewController = FavoriteViewController()
+        let view: ViewControllerFavorite = ViewControllerFavorite()
         nvc.viewControllers = [view as UIViewController]
         return nvc
     }

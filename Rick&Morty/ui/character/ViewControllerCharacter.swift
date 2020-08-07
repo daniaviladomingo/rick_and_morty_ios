@@ -1,20 +1,20 @@
 //
-//  FavoriteViewController.swift
+//  CharacterViewControler.swift
 //  Rick&Morty
 //
-//  Created by Daniel Ávila Domingo on 07/08/2020.
+//  Created by Daniel Ávila Domingo on 06/08/2020.
 //  Copyright © 2020 Daniel Ávila Domingo. All rights reserved.
 //
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
+class ViewControllerCharacter: UIViewController {
     var id: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white        
             
         print("\(id)")
     }

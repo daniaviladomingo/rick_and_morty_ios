@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharactersRouter: IRouterCharacters {
+class RouterCharacters: IRouterCharacters {
     
     private let navigationController: UINavigationController
     
@@ -23,9 +23,9 @@ class CharactersRouter: IRouterCharacters {
         
         let nvc: UINavigationController = UINavigationController()
         
-        let view: IViewCharacters = CharactersViewController()
-        let router: IRouterCharacters = CharactersRouter(navigationController: nvc)
-        let presenter: IPresenterCharacters = CharactersPresenterImp(view: view, router: router, getCharactersUseCase: getCharactersUseCase)
+        let view: IViewCharacters = ViewControllerCharacters()
+        let router: IRouterCharacters = RouterCharacters(navigationController: nvc)
+        let presenter: IPresenterCharacters = PresenterCharacters(view: view, router: router, getCharactersUseCase: getCharactersUseCase)
 
         view.presenter = presenter
     
@@ -35,7 +35,7 @@ class CharactersRouter: IRouterCharacters {
     }
     
     func navigateToCharacterDetail(id: Int) {
-        let characterModule = CharacterRouter.createModule(navigationController: navigationController) as! CharacterViewController
+        let characterModule = RouterCharacter.createModule(navigationController: navigationController) as! ViewControllerCharacter
         characterModule.id = id
         navigationController.pushViewController(characterModule, animated: true)
     }

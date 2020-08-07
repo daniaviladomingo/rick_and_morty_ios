@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharactersViewController: UIViewController, IViewCharacters {
+class ViewControllerCharacters: UIViewController, IViewCharacters {
     var presenter: IPresenterCharacters?
     
     private let tableView = UITableView()
@@ -43,7 +43,7 @@ class CharactersViewController: UIViewController, IViewCharacters {
     }
 }
 
-extension CharactersViewController: UITableViewDataSource{
+extension ViewControllerCharacters: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters?.count ?? 0
     }
@@ -59,7 +59,7 @@ extension CharactersViewController: UITableViewDataSource{
     }
 }
 
-extension CharactersViewController: UITableViewDelegate {
+extension ViewControllerCharacters: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let character = characters?[indexPath.row] {
             presenter?.showCharacterDetail(id: character.id)

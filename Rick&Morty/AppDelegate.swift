@@ -23,15 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         remote = RemoteImp(endPoint: "https://rickandmortyapi.com/api/", mapper: charactersMapper)
         repository = RepositoryImp(remote: remote)
         
-        let charactersView = CharactersRouter.createModule()
-        let favoriteView = FavoriteRouter.createModule()
+        let charactersView = RouterCharacters.createModule()
+        let favoriteView = RouterFavorite.createModule()
         
         let tabBarController = UITabBarController()
+        
         charactersView.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
         favoriteView.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         
         tabBarController.viewControllers = [charactersView, favoriteView]
-        tabBarController.title = "Rick & Morty"
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController

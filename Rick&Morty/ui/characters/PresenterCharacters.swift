@@ -8,7 +8,7 @@
 
 import RxSwift
 
-class CharactersPresenterImp: IPresenterCharacters {
+class PresenterCharacters: IPresenterCharacters {
     private let disposeBag = DisposeBag()
     
     private let view: IViewCharacters

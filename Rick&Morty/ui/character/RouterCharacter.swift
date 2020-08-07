@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CharacterRouter: IRouterCharacter {
+class RouterCharacter: IRouterCharacter {
     static func createModule(navigationController: UINavigationController) -> UIViewController {
-        let view: UIViewController = CharacterViewController()
+        let view: UIViewController = ViewControllerCharacter()
         return view
     }    
 }

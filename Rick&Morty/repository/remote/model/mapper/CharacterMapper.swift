@@ -27,7 +27,7 @@ struct CharacterMapper: Mapper {
             }
         }()
         
-        return Character(id: model.id, name: model.name, image: model.image, status: status, species: model.species.rawValue, origin: model.origin.name )
+        return Character(id: model.id, name: model.name, image: model.image, status: status, species: model.species, origin: model.origin.name )
     }
     
     func inverseMap(model: Character) -> CharacterApi {

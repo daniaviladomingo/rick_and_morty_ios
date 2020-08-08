@@ -10,7 +10,15 @@ import UIKit
 
 class RouterCharacter: IRouterCharacter {
     static func createModule(navigationController: UINavigationController) -> UIViewController {
-        let view: UIViewController = ViewControllerCharacter()
-        return view
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let getCharacterUseCase: GetCharacterUseCase = GetCharacterUseCase(repository: appDelegate.repository)
+        
+        let view: IViewCharacter = ViewControllerCharacter()
+        let presenter: IPresenterCharacter = PresenterCharacter(view: view, getCharacterUseCase: getCharacterUseCase)
+
+        view.presenter = presenter
+        
+        return view as! UIViewController
     }    
 }

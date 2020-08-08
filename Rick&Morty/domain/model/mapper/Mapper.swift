@@ -6,8 +6,6 @@
 //  Copyright © 2020 Daniel Ávila Domingo. All rights reserved.
 //
 
-import Foundation
-
 protocol Mapper {
     associatedtype IN
     associatedtype OUT

@@ -6,8 +6,6 @@
 //  Copyright © 2020 Daniel Ávila Domingo. All rights reserved.
 //
 
-import Foundation
-
 struct Character {
     let id: Int
     let name: String
@@ -17,8 +15,8 @@ struct Character {
     let origin: String
 }
 
-enum Status {
-    case ALIVE
-    case DEAD
-    case UNKNOWN
+enum Status: String {
+    case ALIVE = "ALIVE"
+    case DEAD = "DEAD"
+    case UNKNOWN = "UNKNOWN"
 }

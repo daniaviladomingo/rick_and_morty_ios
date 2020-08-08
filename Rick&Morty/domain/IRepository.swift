@@ -6,7 +6,6 @@
 //  Copyright © 2020 Daniel Ávila Domingo. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 
 protocol IRepository {

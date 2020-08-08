@@ -15,6 +15,7 @@ protocol IPresenterCharacter: class {
 
 protocol IViewCharacter: class {
     var presenter: IPresenterCharacter? { get set }
+    func showCharacter(character: Character)
 }
 
 protocol IRouterCharacter: class {

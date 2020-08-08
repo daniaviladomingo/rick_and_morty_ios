@@ -22,7 +22,7 @@ struct CharacterApi: Codable {
     let id: Int
     let name: String
     let status: ApiStatus
-    let species: Species
+    let species: String
     let type: String
     let gender: Gender
     let origin, location: Location
@@ -35,17 +35,13 @@ struct CharacterApi: Codable {
 enum Gender: String, Codable {
     case female = "Female"
     case male = "Male"
+    case genderless = "Genderless"
     case unknown = "unknown"
 }
 
 struct Location: Codable {
     let name: String
     let url: String
-}
-
-enum Species: String, Codable {
-    case alien = "Alien"
-    case human = "Human"
 }
 
 enum ApiStatus: String, Codable {

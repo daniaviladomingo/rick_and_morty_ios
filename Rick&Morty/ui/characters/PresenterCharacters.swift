@@ -8,9 +8,7 @@
 
 import RxSwift
 
-class PresenterCharacters: IPresenterCharacters {
-    private let disposeBag = DisposeBag()
-    
+class PresenterCharacters: BasePresenter, IPresenterCharacters {    
     private let view: IViewCharacters
     private let router: IRouterCharacters
 
@@ -29,7 +27,7 @@ class PresenterCharacters: IPresenterCharacters {
                 self.view.showCharacters(characters: characters)
             }){ error in
                 print("\(error)")
-            }.disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
     }
     
     func showCharacterDetail(id: Int) {

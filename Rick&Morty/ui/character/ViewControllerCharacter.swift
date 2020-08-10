@@ -102,8 +102,12 @@ class ViewControllerCharacter: UIViewController, IViewCharacter {
             status.topAnchor.constraint(equalTo: species.bottomAnchor, constant: 20),
             status.centerXAnchor.constraint(equalTo: imageCharacter.centerXAnchor)
         ])
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addFavorite))
+    }
+    
+    func isCharacterFavorite(isFavorite: Bool) {
+        if (isFavorite) {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addFavorite))
+        }
     }
     
     @objc private func addFavorite() {

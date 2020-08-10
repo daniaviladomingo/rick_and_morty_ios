@@ -53,7 +53,7 @@ class CacheImp: ICache {
     func getCharacterFavorite(id: Int) -> Single<Character> {
         return Single.create { observer in
             let request: NSFetchRequest<CharacterDb> = CharacterDb.fetchRequest()
-            request.predicate = NSPredicate(format: "id = %i", id)
+            request.predicate = NSPredicate(format: "id = %d", id)
             
             do {
                 let result = try self.persistenceContainer.viewContext.fetch(request)
@@ -72,6 +72,21 @@ class CacheImp: ICache {
             do {
                 let result = try self.persistenceContainer.viewContext.fetch(request)
                 observer(.success(result.map({self.mapper.map(model: $0)})))
+            } catch let error as NSError {
+                observer(.error(error))
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func isCharacterFavorite(id: Int) -> Single<Bool> {
+        return Single.create { observer in
+            let request: NSFetchRequest<CharacterDb> = CharacterDb.fetchRequest()
+            request.predicate = NSPredicate(format: "id = %d", id)
+            
+            do {
+                let result = try self.persistenceContainer.viewContext.fetch(request)
+                observer(.success(result.count == 0))
             } catch let error as NSError {
                 observer(.error(error))
             }

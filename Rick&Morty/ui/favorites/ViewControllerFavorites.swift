@@ -22,12 +22,12 @@ class ViewControllerFavorites: UIViewController, IViewFavorites {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter?.loadFavorites()
         print("viewWillAppear")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter?.loadFavorites()
         print("viewDidAppear")
     }
     

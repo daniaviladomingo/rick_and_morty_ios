@@ -13,10 +13,11 @@ class RouterCharacter: IRouterCharacter {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         let getCharacterUseCase: GetCharacterUseCase = GetCharacterUseCase(repository: appDelegate.repository)
+        let isCharacterFavoriteUseCase: IsCharacterFavoriteUseCase = IsCharacterFavoriteUseCase(repository: appDelegate.repository)
         let addCharacterToFavoriteUseCase: AddCharacterToFavoriteUseCase = AddCharacterToFavoriteUseCase(repository: appDelegate.repository)
         
         let view: IViewCharacter = ViewControllerCharacter()
-        let presenter: IPresenterCharacter = PresenterCharacter(view: view, getCharacterUseCase: getCharacterUseCase, addCharacterToFavoriteUseCase: addCharacterToFavoriteUseCase)
+        let presenter: IPresenterCharacter = PresenterCharacter(view: view, getCharacterUseCase: getCharacterUseCase, isCharacterFavoriteUseCase: isCharacterFavoriteUseCase, addCharacterToFavoriteUseCase: addCharacterToFavoriteUseCase)
 
         view.presenter = presenter
         

@@ -38,4 +38,7 @@ class RepositoryImp: IRepository {
         return cache.getCharactersFavorites()
     }
     
+    func isCharacterFavorite(id: Int) -> Single<Bool> {
+        return cache.isCharacterFavorite(id: id)
+    }    
 }

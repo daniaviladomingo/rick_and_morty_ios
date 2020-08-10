@@ -12,4 +12,6 @@ protocol ICache {
     func addCharacterToFavorite(character: Character) -> Completable
     func getCharacterFavorite(id: Int) -> Single<Character>
     func getCharactersFavorites() -> Single<[Character]>
+    
+    func isCharacterFavorite(id: Int) -> Single<Bool>
 }

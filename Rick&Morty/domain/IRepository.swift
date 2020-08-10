@@ -11,8 +11,11 @@ import RxSwift
 protocol IRepository {
     func getCharacters() -> Single<[Character]>
     func getCharacter(id: Int) -> Single<Character>
+    
     func addCharacterToFavorite(character: Character) -> Completable
     func getCharacterFavorite(id: Int) -> Single<Character>
     func getCharactersFavorites() -> Single<[Character]>
+    
+    func isCharacterFavorite(id: Int) -> Single<Bool>
 }
 

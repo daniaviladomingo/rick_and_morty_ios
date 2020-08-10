@@ -46,6 +46,7 @@
 		70D4A2D924E154CC0013BBFE /* CharacterDbMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2D824E154CC0013BBFE /* CharacterDbMapper.swift */; };
 		70D4A2DB24E171120013BBFE /* GetCharacterFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2DA24E171120013BBFE /* GetCharacterFavoritesUseCase.swift */; };
 		70D4A2DD24E17BBE0013BBFE /* PresenterFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2DC24E17BBE0013BBFE /* PresenterFavorites.swift */; };
+		70D4A2DF24E183660013BBFE /* IsCharacterFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2DE24E183660013BBFE /* IsCharacterFavoriteUseCase.swift */; };
 		9A61385043201713725D5D1C /* Pods_Rick_Morty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CA3D7EA6B2A4B7B2C0A496 /* Pods_Rick_Morty.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +115,7 @@
 		70D4A2D824E154CC0013BBFE /* CharacterDbMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDbMapper.swift; sourceTree = "<group>"; };
 		70D4A2DA24E171120013BBFE /* GetCharacterFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterFavoritesUseCase.swift; sourceTree = "<group>"; };
 		70D4A2DC24E17BBE0013BBFE /* PresenterFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterFavorites.swift; sourceTree = "<group>"; };
+		70D4A2DE24E183660013BBFE /* IsCharacterFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsCharacterFavoriteUseCase.swift; sourceTree = "<group>"; };
 		9F3D9C7A8A202D6799B15288 /* Pods-Rick&Morty-Rick&MortyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&Morty-Rick&MortyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rick&Morty-Rick&MortyUITests/Pods-Rick&Morty-Rick&MortyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E742320CC062FD68A8FB06F1 /* Pods-Rick&MortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&MortyTests.release.xcconfig"; path = "Target Support Files/Pods-Rick&MortyTests/Pods-Rick&MortyTests.release.xcconfig"; sourceTree = "<group>"; };
 		F1B1A9EE4B6E952C074446EB /* Pods_Rick_Morty_Rick_MortyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rick_Morty_Rick_MortyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,6 +293,7 @@
 				706BF8C224DD7E00008751B6 /* GetCharacterUseCase.swift */,
 				7094EFAD24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift */,
 				70D4A2DA24E171120013BBFE /* GetCharacterFavoritesUseCase.swift */,
+				70D4A2DE24E183660013BBFE /* IsCharacterFavoriteUseCase.swift */,
 			);
 			path = interactors;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 			files = (
 				706BF81C24D2D5F8008751B6 /* ViewControllerCharacters.swift in Sources */,
 				706BF81824D2D5F8008751B6 /* AppDelegate.swift in Sources */,
+				70D4A2DF24E183660013BBFE /* IsCharacterFavoriteUseCase.swift in Sources */,
 				706BF87224D41B29008751B6 /* PresenterCharacters.swift in Sources */,
 				706BF85924D2E74A008751B6 /* Mapper.swift in Sources */,
 				706BF87024D4000B008751B6 /* ContractCharacters.swift in Sources */,

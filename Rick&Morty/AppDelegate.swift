@@ -15,16 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var remote: IRemote!
+    var cache: ICache!
+    
     var repository: IRepository!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let charactersMapper: CharacterMapper = CharacterMapper()
+        let charactersDbMapper: CharacterDbMapper = CharacterDbMapper()
         
         remote = RemoteImp(endPoint: "https://rickandmortyapi.com/api/", mapper: charactersMapper)
-        repository = RepositoryImp(remote: remote)
+        cache = CacheImp(persistenceContainer: persistentContainer, mapper: charactersDbMapper)
+        
+        repository = RepositoryImp(remote: remote, cache: cache)
         
         let charactersView = RouterCharacters.createModule()
-        let favoriteView = RouterFavorite.createModule()
+        let favoriteView = RouterFavorites.createModule()
         
         let tabBarController = UITabBarController()
         

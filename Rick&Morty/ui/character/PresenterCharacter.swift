@@ -11,10 +11,12 @@ class PresenterCharacter: BasePresenter, IPresenterCharacter {
     private let view: IViewCharacter
     
     private let getCharacterUseCase: GetCharacterUseCase
+    private let addCharacterToFavoriteUseCase: AddCharacterToFavoriteUseCase
     
-    init(view: IViewCharacter, getCharacterUseCase: GetCharacterUseCase) {
+    init(view: IViewCharacter, getCharacterUseCase: GetCharacterUseCase, addCharacterToFavoriteUseCase: AddCharacterToFavoriteUseCase) {
         self.view = view
         self.getCharacterUseCase = getCharacterUseCase
+        self.addCharacterToFavoriteUseCase = addCharacterToFavoriteUseCase
     }
     
     func loadCharacter(id: Int) {
@@ -28,6 +30,12 @@ class PresenterCharacter: BasePresenter, IPresenterCharacter {
     }
     
     func addToFavorite(character: Character) {
-        
+        addCharacterToFavoriteUseCase
+            .execute(parameter: character)
+            .subscribe(onCompleted: {
+                print("Añado")
+            }){ error in
+                print("\(error)")
+        }.disposed(by: disposeBag)
     }
 }

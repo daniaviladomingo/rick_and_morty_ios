@@ -10,6 +10,7 @@ import UIKit
 
 class ViewControllerCharacter: UIViewController, IViewCharacter {
     var id: Int!
+    var character: Character!
     
     var presenter: IPresenterCharacter?
     
@@ -54,6 +55,8 @@ class ViewControllerCharacter: UIViewController, IViewCharacter {
     }
     
     func showCharacter(character: Character) {
+        self.character = character
+        
         name.text = character.name
         species.text = "\(character.origin), \(character.species)"
         status.text = character.status.rawValue
@@ -65,7 +68,6 @@ class ViewControllerCharacter: UIViewController, IViewCharacter {
             status.textColor = .red
         case .UNKNOWN:
             status.textColor = .orange
-            
         }
         
         imageCharacter.load(url: URL(string: character.image)!)
@@ -73,6 +75,7 @@ class ViewControllerCharacter: UIViewController, IViewCharacter {
     
     private func buildUI() {
         view.backgroundColor = .white
+        
         view.addSubview(imageCharacter)
         view.addSubview(name)
         view.addSubview(species)
@@ -99,5 +102,11 @@ class ViewControllerCharacter: UIViewController, IViewCharacter {
             status.topAnchor.constraint(equalTo: species.bottomAnchor, constant: 20),
             status.centerXAnchor.constraint(equalTo: imageCharacter.centerXAnchor)
         ])
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addFavorite))
+    }
+    
+    @objc private func addFavorite() {
+        presenter?.addToFavorite(character: character)
     }
 }

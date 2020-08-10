@@ -18,3 +18,8 @@ protocol SingleUseCaseWithParameter {
     associatedtype T
     func execute(parameter: E) -> Single<T>
 }
+
+protocol CompletableUseCaseWithParameter {
+    associatedtype E
+    func execute(parameter: E) -> Completable
+}

@@ -43,7 +43,7 @@ class PresenterCharacter: BasePresenter, IPresenterCharacter {
         addCharacterToFavoriteUseCase
             .execute(parameter: character)
             .subscribe(onCompleted: {
-                print("Añado")
+                self.view.isCharacterFavorite(isFavorite: true)
             }){ error in
                 print("\(error)")
         }.disposed(by: disposeBag)

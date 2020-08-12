@@ -39,6 +39,7 @@
 		706BF8C824DDBC5B008751B6 /* RouterFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF8C724DDBC5B008751B6 /* RouterFavorites.swift */; };
 		706BF8CA24DDBC6C008751B6 /* ContractFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF8C924DDBC6C008751B6 /* ContractFavorites.swift */; };
 		706BF8CC24DDBCD4008751B6 /* ViewControllerFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF8CB24DDBCD4008751B6 /* ViewControllerFavorites.swift */; };
+		7091AEF124E40B8D00AB5882 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AEF024E40B8D00AB5882 /* BaseView.swift */; };
 		7094EFAC24DEA3FB00A7A979 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094EFAB24DEA3FB00A7A979 /* BasePresenter.swift */; };
 		7094EFAE24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094EFAD24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift */; };
 		7094EFB124DEBAA400A7A979 /* ICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094EFB024DEBAA400A7A979 /* ICache.swift */; };
@@ -47,6 +48,13 @@
 		70D4A2DB24E171120013BBFE /* GetCharacterFavoritesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2DA24E171120013BBFE /* GetCharacterFavoritesUseCase.swift */; };
 		70D4A2DD24E17BBE0013BBFE /* PresenterFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2DC24E17BBE0013BBFE /* PresenterFavorites.swift */; };
 		70D4A2DF24E183660013BBFE /* IsCharacterFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2DE24E183660013BBFE /* IsCharacterFavoriteUseCase.swift */; };
+		70D4A2E224E1A5190013BBFE /* ContractEditFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2E124E1A5190013BBFE /* ContractEditFavorite.swift */; };
+		70D4A2E424E1A53E0013BBFE /* ViewControllerEditFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2E324E1A53E0013BBFE /* ViewControllerEditFavorite.swift */; };
+		70D4A2E624E2A1580013BBFE /* PresenterEditFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2E524E2A1580013BBFE /* PresenterEditFavorite.swift */; };
+		70D4A2E824E2A4490013BBFE /* RouterEditFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2E724E2A4490013BBFE /* RouterEditFavorite.swift */; };
+		70D4A2EA24E2BEF40013BBFE /* GetCharacterFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2E924E2BEF40013BBFE /* GetCharacterFavoriteUseCase.swift */; };
+		70D4A2EC24E2D1700013BBFE /* RemoveCharacterFromFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2EB24E2D1700013BBFE /* RemoveCharacterFromFavorites.swift */; };
+		70D4A2EE24E2D2320013BBFE /* UpdateCharacterFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D4A2ED24E2D2320013BBFE /* UpdateCharacterFavorite.swift */; };
 		9A61385043201713725D5D1C /* Pods_Rick_Morty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CA3D7EA6B2A4B7B2C0A496 /* Pods_Rick_Morty.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +116,7 @@
 		706BF8C724DDBC5B008751B6 /* RouterFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterFavorites.swift; sourceTree = "<group>"; };
 		706BF8C924DDBC6C008751B6 /* ContractFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractFavorites.swift; sourceTree = "<group>"; };
 		706BF8CB24DDBCD4008751B6 /* ViewControllerFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFavorites.swift; sourceTree = "<group>"; };
+		7091AEF024E40B8D00AB5882 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		7094EFAB24DEA3FB00A7A979 /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		7094EFAD24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCharacterToFavoriteUseCase.swift; sourceTree = "<group>"; };
 		7094EFB024DEBAA400A7A979 /* ICache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICache.swift; sourceTree = "<group>"; };
@@ -116,6 +125,13 @@
 		70D4A2DA24E171120013BBFE /* GetCharacterFavoritesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterFavoritesUseCase.swift; sourceTree = "<group>"; };
 		70D4A2DC24E17BBE0013BBFE /* PresenterFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterFavorites.swift; sourceTree = "<group>"; };
 		70D4A2DE24E183660013BBFE /* IsCharacterFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsCharacterFavoriteUseCase.swift; sourceTree = "<group>"; };
+		70D4A2E124E1A5190013BBFE /* ContractEditFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractEditFavorite.swift; sourceTree = "<group>"; };
+		70D4A2E324E1A53E0013BBFE /* ViewControllerEditFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEditFavorite.swift; sourceTree = "<group>"; };
+		70D4A2E524E2A1580013BBFE /* PresenterEditFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterEditFavorite.swift; sourceTree = "<group>"; };
+		70D4A2E724E2A4490013BBFE /* RouterEditFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterEditFavorite.swift; sourceTree = "<group>"; };
+		70D4A2E924E2BEF40013BBFE /* GetCharacterFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharacterFavoriteUseCase.swift; sourceTree = "<group>"; };
+		70D4A2EB24E2D1700013BBFE /* RemoveCharacterFromFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCharacterFromFavorites.swift; sourceTree = "<group>"; };
+		70D4A2ED24E2D2320013BBFE /* UpdateCharacterFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCharacterFavorite.swift; sourceTree = "<group>"; };
 		9F3D9C7A8A202D6799B15288 /* Pods-Rick&Morty-Rick&MortyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&Morty-Rick&MortyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Rick&Morty-Rick&MortyUITests/Pods-Rick&Morty-Rick&MortyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E742320CC062FD68A8FB06F1 /* Pods-Rick&MortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick&MortyTests.release.xcconfig"; path = "Target Support Files/Pods-Rick&MortyTests/Pods-Rick&MortyTests.release.xcconfig"; sourceTree = "<group>"; };
 		F1B1A9EE4B6E952C074446EB /* Pods_Rick_Morty_Rick_MortyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rick_Morty_Rick_MortyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,7 +308,10 @@
 				706BF86C24D30D05008751B6 /* GetCharactersUseCase.swift */,
 				706BF8C224DD7E00008751B6 /* GetCharacterUseCase.swift */,
 				7094EFAD24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift */,
+				70D4A2EB24E2D1700013BBFE /* RemoveCharacterFromFavorites.swift */,
+				70D4A2ED24E2D2320013BBFE /* UpdateCharacterFavorite.swift */,
 				70D4A2DA24E171120013BBFE /* GetCharacterFavoritesUseCase.swift */,
+				70D4A2E924E2BEF40013BBFE /* GetCharacterFavoriteUseCase.swift */,
 				70D4A2DE24E183660013BBFE /* IsCharacterFavoriteUseCase.swift */,
 			);
 			path = interactors;
@@ -301,6 +320,7 @@
 		706BF86E24D3FFDA008751B6 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				70D4A2E024E1A5040013BBFE /* favorite */,
 				706BF8C624DDBB9C008751B6 /* favorites */,
 				706BF8BB24DC23E5008751B6 /* character */,
 				706BF8BA24DC2254008751B6 /* characters */,
@@ -354,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				7094EFAB24DEA3FB00A7A979 /* BasePresenter.swift */,
+				7091AEF024E40B8D00AB5882 /* BaseView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -382,6 +403,17 @@
 				70D4A2D824E154CC0013BBFE /* CharacterDbMapper.swift */,
 			);
 			path = mapper;
+			sourceTree = "<group>";
+		};
+		70D4A2E024E1A5040013BBFE /* favorite */ = {
+			isa = PBXGroup;
+			children = (
+				70D4A2E124E1A5190013BBFE /* ContractEditFavorite.swift */,
+				70D4A2E324E1A53E0013BBFE /* ViewControllerEditFavorite.swift */,
+				70D4A2E524E2A1580013BBFE /* PresenterEditFavorite.swift */,
+				70D4A2E724E2A4490013BBFE /* RouterEditFavorite.swift */,
+			);
+			path = favorite;
 			sourceTree = "<group>";
 		};
 		9D46BEBCCF5E071C48CA4C7B /* Frameworks */ = {
@@ -635,18 +667,23 @@
 				706BF81C24D2D5F8008751B6 /* ViewControllerCharacters.swift in Sources */,
 				706BF81824D2D5F8008751B6 /* AppDelegate.swift in Sources */,
 				70D4A2DF24E183660013BBFE /* IsCharacterFavoriteUseCase.swift in Sources */,
+				70D4A2EC24E2D1700013BBFE /* RemoveCharacterFromFavorites.swift in Sources */,
 				706BF87224D41B29008751B6 /* PresenterCharacters.swift in Sources */,
 				706BF85924D2E74A008751B6 /* Mapper.swift in Sources */,
 				706BF87024D4000B008751B6 /* ContractCharacters.swift in Sources */,
 				706BF82224D2D5F8008751B6 /* Rick_Morty.xcdatamodeld in Sources */,
 				706BF8BD24DC23FD008751B6 /* ViewControllerCharacter.swift in Sources */,
 				706BF86124D2E85B008751B6 /* RemoteImp.swift in Sources */,
+				70D4A2EE24E2D2320013BBFE /* UpdateCharacterFavorite.swift in Sources */,
 				706BF8C824DDBC5B008751B6 /* RouterFavorites.swift in Sources */,
 				706BF85C24D2E830008751B6 /* RepositoryImp.swift in Sources */,
 				706BF8BF24DD49E9008751B6 /* ContractCharacter.swift in Sources */,
 				706BF8C324DD7E00008751B6 /* GetCharacterUseCase.swift in Sources */,
 				706BF8C124DD4A0C008751B6 /* RouterCharacter.swift in Sources */,
 				706BF87824DAEB37008751B6 /* extension.swift in Sources */,
+				70D4A2E224E1A5190013BBFE /* ContractEditFavorite.swift in Sources */,
+				70D4A2EA24E2BEF40013BBFE /* GetCharacterFavoriteUseCase.swift in Sources */,
+				70D4A2E824E2A4490013BBFE /* RouterEditFavorite.swift in Sources */,
 				706BF86B24D30A72008751B6 /* types.swift in Sources */,
 				70D4A2D924E154CC0013BBFE /* CharacterDbMapper.swift in Sources */,
 				70D4A2DD24E17BBE0013BBFE /* PresenterFavorites.swift in Sources */,
@@ -657,13 +694,16 @@
 				7094EFAC24DEA3FB00A7A979 /* BasePresenter.swift in Sources */,
 				7094EFAE24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift in Sources */,
 				706BF8C524DD80F9008751B6 /* PresenterCharacter.swift in Sources */,
+				70D4A2E424E1A53E0013BBFE /* ViewControllerEditFavorite.swift in Sources */,
 				706BF85624D2E72C008751B6 /* Character.swift in Sources */,
 				706BF86424D2ED7C008751B6 /* CharactersResponse.swift in Sources */,
 				706BF8CC24DDBCD4008751B6 /* ViewControllerFavorites.swift in Sources */,
 				70D4A2D524E147240013BBFE /* CacheImp.swift in Sources */,
 				7094EFB124DEBAA400A7A979 /* ICache.swift in Sources */,
 				706BF85F24D2E851008751B6 /* IRemote.swift in Sources */,
+				70D4A2E624E2A1580013BBFE /* PresenterEditFavorite.swift in Sources */,
 				706BF86D24D30D05008751B6 /* GetCharactersUseCase.swift in Sources */,
+				7091AEF124E40B8D00AB5882 /* BaseView.swift in Sources */,
 				70D4A2DB24E171120013BBFE /* GetCharacterFavoritesUseCase.swift in Sources */,
 				706BF85324D2E6FD008751B6 /* IRepository.swift in Sources */,
 			);
@@ -832,6 +872,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 989UN7ZXZN;
 				INFOPLIST_FILE = "Rick&Morty/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -850,6 +891,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 989UN7ZXZN;
 				INFOPLIST_FILE = "Rick&Morty/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

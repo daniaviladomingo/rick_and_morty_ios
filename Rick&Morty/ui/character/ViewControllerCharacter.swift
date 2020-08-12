@@ -106,6 +106,8 @@ class ViewControllerCharacter: UIViewController, IViewCharacter {
     
     func isCharacterFavorite(isFavorite: Bool) {
         if (isFavorite) {
+            navigationItem.rightBarButtonItem = nil
+        } else {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addFavorite))
         }
     }

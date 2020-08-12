@@ -15,6 +15,7 @@ class IsCharacterFavoriteUseCase: SingleUseCaseWithParameter {
     init(repository: IRepository) {
         self.repository = repository
     }
+    
     typealias E = Int
     
     typealias T = Bool

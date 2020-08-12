@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tabBarController = UITabBarController()
         
-        charactersView.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
+        charactersView.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
         favoriteView.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         
         tabBarController.viewControllers = [charactersView, favoriteView]

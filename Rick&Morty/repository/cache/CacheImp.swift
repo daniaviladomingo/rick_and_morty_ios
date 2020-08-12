@@ -10,6 +10,7 @@ import CoreData
 import RxSwift
 
 class CacheImp: ICache {
+       
     private let persistenceContainer: NSPersistentContainer
     private let mapper: CharacterDbMapper
     
@@ -41,6 +42,57 @@ class CacheImp: ICache {
             characterDb.species = character.species
             
             do {
+                try self.persistenceContainer.viewContext.save()
+                observer(.completed)
+            } catch let error as NSError {
+                observer(.error(error))
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func removeCharacterFromFavorite(id: Int) -> Completable {
+        return Completable.create { observer in
+            let request: NSFetchRequest<CharacterDb> = CharacterDb.fetchRequest()
+            request.predicate = NSPredicate(format: "id = %d", id)
+            
+            do {
+                let result = try self.persistenceContainer.viewContext.fetch(request)
+                self.persistenceContainer.viewContext.delete(result[0])
+                try self.persistenceContainer.viewContext.save()
+                observer(.completed)
+            } catch let error as NSError {
+                observer(.error(error))
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func updateCharacterFavorite(character: Character) -> Completable {
+        return Completable.create { observer in
+            let request: NSFetchRequest<CharacterDb> = CharacterDb.fetchRequest()
+            request.predicate = NSPredicate(format: "id = %d", character.id)
+            
+            do {
+                let result = try self.persistenceContainer.viewContext.fetch(request)
+                let characterToUpdate: NSManagedObject = result[0]
+                
+                let status: String = {
+                    switch character.status {
+                    case Status.ALIVE:
+                        return "Alive"
+                    case Status.DEAD:
+                        return "Dead"
+                    case Status.UNKNOWN:
+                        return "unknown"
+                    }
+                }()
+                
+                characterToUpdate.setValue(character.name, forKey: "name")
+                characterToUpdate.setValue(character.origin, forKey: "origin")
+                characterToUpdate.setValue(character.species, forKey: "species")
+                characterToUpdate.setValue(status, forKey: "status")
+                
                 try self.persistenceContainer.viewContext.save()
                 observer(.completed)
             } catch let error as NSError {
@@ -86,7 +138,7 @@ class CacheImp: ICache {
             
             do {
                 let result = try self.persistenceContainer.viewContext.fetch(request)
-                observer(.success(result.count == 0))
+                observer(.success(result.count > 0))
             } catch let error as NSError {
                 observer(.error(error))
             }

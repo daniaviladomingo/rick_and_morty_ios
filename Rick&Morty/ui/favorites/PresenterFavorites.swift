@@ -27,4 +27,8 @@ class PresenterFavorites: BasePresenter, IPresenterFavorites {
                 print("\(error)")
         }.disposed(by: disposeBag)
     }
+    
+    func editFavorite(id: Int) {
+        router.editFavorite(id: id)
+    }
 }

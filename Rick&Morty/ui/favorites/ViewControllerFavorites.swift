@@ -15,30 +15,13 @@ class ViewControllerFavorites: UIViewController, IViewFavorites {
     private var characters: [Character]?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
         buildUI()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("viewWillAppear")
-    }
-    
+        
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.loadFavorites()
-        print("viewDidAppear")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("viewWillDisappear")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("viewDidDisappear")
     }
     
     func showFavorites(characters: [Character]) {
@@ -60,7 +43,7 @@ class ViewControllerFavorites: UIViewController, IViewFavorites {
         tableView.dataSource = self
         tableView.delegate = self
         
-        navigationItem.title = "Rick & Morty"
+        navigationItem.title = "Favorites"
     }
 }
 
@@ -82,9 +65,9 @@ extension ViewControllerFavorites: UITableViewDataSource{
 
 extension ViewControllerFavorites: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let character = characters?[indexPath.row] {
-//            presenter?.showCharacterDetail(id: character.id)
-//        }
+        if let character = characters?[indexPath.row] {
+            presenter?.editFavorite(id: character.id)
+        }        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

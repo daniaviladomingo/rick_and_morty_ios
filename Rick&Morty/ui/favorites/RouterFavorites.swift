@@ -33,4 +33,10 @@ class RouterFavorites: IRouterFavorites {
         
         return nvc
     }
+    
+    func editFavorite(id: Int) {
+        let favoriteModule = RouterEditFavorite.createModule(id: id)
+        favoriteModule.modalPresentationStyle = .fullScreen
+        navigationController.present(favoriteModule, animated: true)
+    }
 }

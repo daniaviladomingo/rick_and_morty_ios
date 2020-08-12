@@ -9,7 +9,8 @@
 import UIKit
 
 protocol IPresenterFavorites: class {
-    func loadFavorites()    
+    func loadFavorites()
+    func editFavorite(id: Int)
 }
 
 protocol IViewFavorites: class {
@@ -19,4 +20,5 @@ protocol IViewFavorites: class {
 
 protocol IRouterFavorites: class {
     static func createModule() -> UIViewController
+    func editFavorite(id: Int)
 }

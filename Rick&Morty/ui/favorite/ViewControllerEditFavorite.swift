@@ -142,8 +142,15 @@ class ViewControllerEditFavorite: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     @objc private func removeFavorite() {
-        presenter?.removeFromFavorite(id: id)
-        dismiss(animated: true)        
+        let alert = UIAlertController(title: "Remove from favorites?", message: "Confirm, please", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in
+            self.presenter?.removeFromFavorite(id: self.id)
+            self.dismiss(animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {action in }))
+
+        self.present(alert, animated: true)
     }
     
     @objc private func updateFavorite() {

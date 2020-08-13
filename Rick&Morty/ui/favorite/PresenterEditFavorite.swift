@@ -7,14 +7,14 @@
 //
 
 class PresenterEditFavorite: BasePresenter, IPresenterEditFavorite {
-    private let view: IViewEditFavorite
+    private let view: IViewEditFavorite & IBaseView
     
     private let removeCharacterFromFavorite: RemoveCharacterFromFavorite
     private let updateCharacterFavorite: UpdateCharacterFavorite
     private let getCharacterFavoriteUseCase: GetCharacterFavoriteUseCase
     
     init(
-        view: IViewEditFavorite,
+        view: IViewEditFavorite & IBaseView,
         getCharacterFavoriteUseCase: GetCharacterFavoriteUseCase,
         removeCharacterFromFavorite: RemoveCharacterFromFavorite,
         updateCharacterFavorite: UpdateCharacterFavorite) {
@@ -30,7 +30,7 @@ class PresenterEditFavorite: BasePresenter, IPresenterEditFavorite {
             .subscribe(onSuccess: { character in
                 self.view.showFavorite(character: character)
             }){ error in
-                print("\(error)")
+                self.view.showError(msg: error.localizedDescription)
         }.disposed(by: disposeBag)
     }
     
@@ -40,7 +40,7 @@ class PresenterEditFavorite: BasePresenter, IPresenterEditFavorite {
             .subscribe(onCompleted: {
                 
             }){ error in
-                print("\(error)")
+                self.view.showError(msg: error.localizedDescription)
         }.disposed(by: disposeBag)
     }
     
@@ -50,7 +50,7 @@ class PresenterEditFavorite: BasePresenter, IPresenterEditFavorite {
             .subscribe(onCompleted: {
                 
             }){ error in
-                print("\(error)")
+                self.view.showError(msg: error.localizedDescription)
         }.disposed(by: disposeBag)
     }
 }

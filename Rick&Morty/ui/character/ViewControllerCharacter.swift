@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerCharacter: UIViewController, IViewCharacter {
+class ViewControllerCharacter: BaseView, IViewCharacter {
     var id: Int!
     var character: Character!
     

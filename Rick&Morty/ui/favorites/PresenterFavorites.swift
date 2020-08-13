@@ -7,12 +7,12 @@
 //
 
 class PresenterFavorites: BasePresenter, IPresenterFavorites {
-    private let view: IViewFavorites
+    private let view: IViewFavorites & IBaseView
     private let router: IRouterFavorites
     
     private let getCharacterFavoritesUseCase: GetCharacterFavoritesUseCase
     
-    init(view: IViewFavorites, router: IRouterFavorites, getCharacterFavoritesUseCase: GetCharacterFavoritesUseCase) {
+    init(view: IViewFavorites & IBaseView, router: IRouterFavorites, getCharacterFavoritesUseCase: GetCharacterFavoritesUseCase) {
         self.getCharacterFavoritesUseCase = getCharacterFavoritesUseCase
         self.router = router
         self.view = view
@@ -24,7 +24,7 @@ class PresenterFavorites: BasePresenter, IPresenterFavorites {
             .subscribe(onSuccess: { characters in
                 self.view.showFavorites(characters: characters)
             }){ error in
-                print("\(error)")
+                self.view.showError(msg: error.localizedDescription)
         }.disposed(by: disposeBag)
     }
     

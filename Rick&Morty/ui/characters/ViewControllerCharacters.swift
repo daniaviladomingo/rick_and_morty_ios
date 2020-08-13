@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewControllerCharacters: UIViewController, IViewCharacters {
+class ViewControllerCharacters: BaseView, IViewCharacters {
     var presenter: IPresenterCharacters?
     
     private let tableView = UITableView()
-    private var characters: [Character]?
+    private var characters: [Character] = []
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class ViewControllerCharacters: UIViewController, IViewCharacters {
     }
     
     func showCharacters(characters: [Character]) {
-        self.characters = characters
+        self.characters.append(contentsOf: characters)
         tableView.reloadData()
     }
     
@@ -45,15 +45,19 @@ class ViewControllerCharacters: UIViewController, IViewCharacters {
 
 extension ViewControllerCharacters: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters?.count ?? 0
+        return characters.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let character = characters?[indexPath.row] else { return CharacterViewCell() }
+        let character = characters[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CharacterViewCell
         
         cell.character = character
+        
+        if indexPath.row == characters.count-1 {
+            presenter?.loadCharacters()
+        }
                 
         return cell
     }
@@ -61,9 +65,7 @@ extension ViewControllerCharacters: UITableViewDataSource{
 
 extension ViewControllerCharacters: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let character = characters?[indexPath.row] {
-            presenter?.showCharacterDetail(id: character.id)
-        }
+        presenter?.showCharacterDetail(id: characters[indexPath.row].id)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

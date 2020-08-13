@@ -39,7 +39,7 @@
 		706BF8C824DDBC5B008751B6 /* RouterFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF8C724DDBC5B008751B6 /* RouterFavorites.swift */; };
 		706BF8CA24DDBC6C008751B6 /* ContractFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF8C924DDBC6C008751B6 /* ContractFavorites.swift */; };
 		706BF8CC24DDBCD4008751B6 /* ViewControllerFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706BF8CB24DDBCD4008751B6 /* ViewControllerFavorites.swift */; };
-		7091AEF124E40B8D00AB5882 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AEF024E40B8D00AB5882 /* BaseView.swift */; };
+		7091AEF324E4363E00AB5882 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AEF224E4363E00AB5882 /* BaseView.swift */; };
 		7094EFAC24DEA3FB00A7A979 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094EFAB24DEA3FB00A7A979 /* BasePresenter.swift */; };
 		7094EFAE24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094EFAD24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift */; };
 		7094EFB124DEBAA400A7A979 /* ICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094EFB024DEBAA400A7A979 /* ICache.swift */; };
@@ -116,7 +116,7 @@
 		706BF8C724DDBC5B008751B6 /* RouterFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterFavorites.swift; sourceTree = "<group>"; };
 		706BF8C924DDBC6C008751B6 /* ContractFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractFavorites.swift; sourceTree = "<group>"; };
 		706BF8CB24DDBCD4008751B6 /* ViewControllerFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFavorites.swift; sourceTree = "<group>"; };
-		7091AEF024E40B8D00AB5882 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		7091AEF224E4363E00AB5882 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		7094EFAB24DEA3FB00A7A979 /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		7094EFAD24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCharacterToFavoriteUseCase.swift; sourceTree = "<group>"; };
 		7094EFB024DEBAA400A7A979 /* ICache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICache.swift; sourceTree = "<group>"; };
@@ -374,7 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				7094EFAB24DEA3FB00A7A979 /* BasePresenter.swift */,
-				7091AEF024E40B8D00AB5882 /* BaseView.swift */,
+				7091AEF224E4363E00AB5882 /* BaseView.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -703,7 +703,7 @@
 				706BF85F24D2E851008751B6 /* IRemote.swift in Sources */,
 				70D4A2E624E2A1580013BBFE /* PresenterEditFavorite.swift in Sources */,
 				706BF86D24D30D05008751B6 /* GetCharactersUseCase.swift in Sources */,
-				7091AEF124E40B8D00AB5882 /* BaseView.swift in Sources */,
+				7091AEF324E4363E00AB5882 /* BaseView.swift in Sources */,
 				70D4A2DB24E171120013BBFE /* GetCharacterFavoritesUseCase.swift in Sources */,
 				706BF85324D2E6FD008751B6 /* IRepository.swift in Sources */,
 			);

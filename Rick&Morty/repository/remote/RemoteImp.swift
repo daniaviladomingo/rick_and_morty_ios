@@ -14,6 +14,8 @@ class RemoteImp: IRemote {
     
     private let mapper: CharacterMapper
     
+    private var page: Int = 1
+    
     init(endPoint: String, mapper: CharacterMapper) {
         self.endPoint = endPoint
         self.mapper = mapper
@@ -21,10 +23,13 @@ class RemoteImp: IRemote {
     
     func getCharacters() -> Single<Array<Character>> {
         return Single<Array<Character>>.create { observer in
-            AF.request("\(self.endPoint)character/").responseDecodable(of: CharactersResponse.self) { response in
+            AF.request("\(self.endPoint)character/?page=\(self.page)").responseDecodable(of: CharactersResponse.self) { response in
                 switch response.result {
                     case .success(let value):
-                        observer(.success(value.results.map({self.mapper.map(model: $0)})))
+                        if value.info.next != nil {
+                            self.page+=1
+                            observer(.success(value.results.map({self.mapper.map(model: $0)})))
+                        }
                     break
                                         
                     case .failure(let error):

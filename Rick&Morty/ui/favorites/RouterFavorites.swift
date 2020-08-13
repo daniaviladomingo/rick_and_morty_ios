@@ -23,7 +23,7 @@ class RouterFavorites: IRouterFavorites {
         
         let nvc: UINavigationController = UINavigationController()
         
-        let view: IViewFavorites = ViewControllerFavorites()
+        let view: IViewFavorites & IBaseView = ViewControllerFavorites()
         let router: IRouterFavorites = RouterFavorites(navigationController: nvc)
         let presenter: IPresenterFavorites = PresenterFavorites(view: view, router: router, getCharacterFavoritesUseCase: getCharacterFavoritesUseCase)
         

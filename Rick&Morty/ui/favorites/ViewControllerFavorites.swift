@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerFavorites: UIViewController, IViewFavorites {
+class ViewControllerFavorites: BaseView, IViewFavorites {
     var presenter: IPresenterFavorites?
     
     private let tableView = UITableView()

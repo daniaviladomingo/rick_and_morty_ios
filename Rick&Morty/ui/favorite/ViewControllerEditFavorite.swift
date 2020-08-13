@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerEditFavorite: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, IViewEditFavorite {
+class ViewControllerEditFavorite: BaseView, UIPickerViewDelegate, UIPickerViewDataSource, IViewEditFavorite {
     var id: Int!
     var character: Character!
     

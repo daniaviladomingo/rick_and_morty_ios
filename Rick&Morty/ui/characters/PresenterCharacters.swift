@@ -9,12 +9,12 @@
 import RxSwift
 
 class PresenterCharacters: BasePresenter, IPresenterCharacters {    
-    private let view: IViewCharacters
+    private let view: IViewCharacters & IBaseView
     private let router: IRouterCharacters
 
     private let getCharactersUseCase: GetCharactersUseCase
     
-    init(view: IViewCharacters, router: IRouterCharacters, getCharactersUseCase: GetCharactersUseCase) {
+    init(view: IViewCharacters & IBaseView, router: IRouterCharacters, getCharactersUseCase: GetCharactersUseCase) {
         self.getCharactersUseCase = getCharactersUseCase
         self.router = router
         self.view = view
@@ -26,7 +26,7 @@ class PresenterCharacters: BasePresenter, IPresenterCharacters {
             .subscribe(onSuccess: { characters in
                 self.view.showCharacters(characters: characters)
             }){ error in
-                print("\(error)")
+                self.view.showError(msg: error.localizedDescription)
         }.disposed(by: disposeBag)
     }
     

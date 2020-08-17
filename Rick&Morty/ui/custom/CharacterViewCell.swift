@@ -36,6 +36,8 @@ class CharacterViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.contentView.backgroundColor = .white
+        
         self.contentView.addSubview(imageCharacter)
         self.contentView.addSubview(name)
                 

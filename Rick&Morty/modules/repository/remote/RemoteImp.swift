@@ -12,11 +12,11 @@ import Alamofire
 class RemoteImp: IRemote {
     private let endPoint: String
     
-    private let mapper: CharacterMapper
+    private let mapper: CharacterApiMapper
     
     private var page: Int = 1
     
-    init(endPoint: String, mapper: CharacterMapper) {
+    init(endPoint: String, mapper: CharacterApiMapper) {
         self.endPoint = endPoint
         self.mapper = mapper
     }

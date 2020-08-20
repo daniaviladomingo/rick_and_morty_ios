@@ -27,8 +27,9 @@ class PresenterEditFavorite: BasePresenter, IPresenterEditFavorite {
     func loadCharacter(id: Int) {
         getCharacterFavoriteUseCase
             .execute(parameter: id)
-            .subscribe(onSuccess: { character in
-                self.view.showFavorite(character: character)
+            .subscribe(onSuccess: { pair in
+                self.view.showFavorite(character: pair.0)
+                print("\(pair.1)")
             }){ error in
                 self.view.showError(msg: error.localizedDescription)
         }.disposed(by: disposeBag)

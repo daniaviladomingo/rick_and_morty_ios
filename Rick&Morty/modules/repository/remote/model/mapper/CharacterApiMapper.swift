@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CharacterMapper: Mapper {
+struct CharacterApiMapper: Mapper {
     
     typealias IN = CharacterApi
     

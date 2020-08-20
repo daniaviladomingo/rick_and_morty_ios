@@ -16,9 +16,9 @@ class GetCharacterFavoriteUseCase: SingleUseCaseWithParameter {
     }
     
     typealias E = Int
-    typealias T = Character
+    typealias T = (Character, Location)
     
-    func execute(parameter: Int) -> Single<Character> {
+    func execute(parameter: Int) -> Single<(Character, Location)> {
         return repository.getCharacterFavorite(id: parameter)
     }
 }

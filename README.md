@@ -16,5 +16,5 @@ Sample VIPER Architecture in iOS
 * Show notification when enter/exit from region where character favorited was added
 
 
-![alt text](./s1.png)  ![alt text](./s2.png) 
-![alt text](./s3.png)  ![alt text](./s4.png) 
+<!---![alt text](./s1.png)  ![alt text](./s2.png) -->
+<!---![alt text](./s3.png)  ![alt text](./s4.png) -->

@@ -12,7 +12,7 @@ class RouterEditFavorite: IRouterEditFavorite {
     static func createModule(id: Int) -> UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        let removeCharacterFromFavorite: RemoveCharacterFromFavorite = RemoveCharacterFromFavorite(repository: appDelegate.repository)
+        let removeCharacterFromFavorite: RemoveCharacterFromFavorite = RemoveCharacterFromFavorite(repository: appDelegate.repository, locationSource: appDelegate.locationSource)
         let updateCharacterFavorite: UpdateCharacterFavorite = UpdateCharacterFavorite(repository: appDelegate.repository)
         let getCharacterFavoriteUseCase: GetCharacterFavoriteUseCase = GetCharacterFavoriteUseCase(repository: appDelegate.repository)
         

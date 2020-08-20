@@ -10,14 +10,20 @@ import RxSwift
 
 class AddCharacterToFavoriteUseCase: CompletableUseCaseWithParameter {
     private let repository: IRepository
+    private let locationSource: ILocationSource
     
-    init(repository: IRepository) {
+    init(repository: IRepository, locationSource: ILocationSource) {
         self.repository = repository
+        self.locationSource = locationSource
     }
     
     typealias E = Character
     
     func execute(parameter: Character) -> Completable {
-        return repository.addCharacterToFavorite(character: parameter)
+        return locationSource.currentLocation().flatMapCompletable { location in
+            self.repository.addCharacterToFavorite(character: parameter, location: location).do(onCompleted: {
+                self.locationSource.addRegionListener(location: location, identifier: parameter.name)
+            })
+        }
     }
 }

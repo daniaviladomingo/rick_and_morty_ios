@@ -8,10 +8,10 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     var window: UIWindow?
     
     var remote: IRemote!
@@ -19,14 +19,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var repository: IRepository!
     
+    var locationSource: ILocationSource!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let charactersMapper: CharacterMapper = CharacterMapper()
+        let charactersMapper: CharacterApiMapper = CharacterApiMapper()
+        
         let charactersDbMapper: CharacterDbMapper = CharacterDbMapper()
+        let locationDbMapper: LocationDbMapper = LocationDbMapper()
         
         remote = RemoteImp(endPoint: "https://rickandmortyapi.com/api/", mapper: charactersMapper)
-        cache = CacheImp(persistenceContainer: persistentContainer, mapper: charactersDbMapper)
+        cache = CacheImp(persistenceContainer: persistentContainer, mapper: charactersDbMapper, locationMapper: locationDbMapper)
         
         repository = RepositoryImp(remote: remote, cache: cache)
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        let notificationManager: INotificationManager = NotificationManagerImp(notificationCenter: notificationCenter)
+        
+        let locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = 100
+        locationSource = LocationSourceImp(locationManager: locationManager, notificationManager: notificationManager, radius: Double(200))
         
         let charactersView = RouterCharacters.createModule()
         let favoriteView = RouterFavorites.createModule()
@@ -42,6 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
+        locationManager.requestAlwaysAuthorization()
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) {
+            granted, error in
+        }        
+
         return true
     }
     
@@ -103,6 +119,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
 }
 
+
+//extension AppDelegate: CLLocationManagerDelegate {
+//  func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
+//    // create CLLocation from the coordinates of CLVisit
+//    let clLocation = CLLocation(latitude: visit.coordinate.latitude, longitude: visit.coordinate.longitude)
+//
+//    // Get location description
+//  }
+//
+//  func newVisitReceived(_ visit: CLVisit, description: String) {
+////    let location = Location(visit: visit, descriptionString: description)
+//
+//    // Save location to disk
+//  }
+//}

@@ -33,7 +33,7 @@ struct CharacterDbMapper: Mapper {
     }
     
     func inverseMap(model: Character) -> CharacterDb {
-        let cDb = CharacterDb()
+        let character = CharacterDb()
         
         let status: String = {
             switch model.status {
@@ -46,13 +46,13 @@ struct CharacterDbMapper: Mapper {
             }
         }()
         
-        cDb.id = Int16(model.id)
-        cDb.image = model.image
-        cDb.name = model.name
-        cDb.species = model.species
-        cDb.origin = model.origin
-        cDb.status = status
+        character.id = Int16(model.id)
+        character.image = model.image
+        character.name = model.name
+        character.species = model.species
+        character.origin = model.origin
+        character.status = status
         
-        return cDb
+        return character
     }
 }

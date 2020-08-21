@@ -21,13 +21,14 @@ class NotificationManagerImp: NSObject, INotificationManager {
         content.title = title
         content.body = msg
         content.sound = .default
+        content.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
         
         // 2
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         let request = UNNotificationRequest(identifier: title, content: content, trigger: trigger)
         
         // 3
-        notificationCenter.add(request, withCompletionHandler: nil)
+        notificationCenter.add(request)
     }
 }
 

@@ -137,7 +137,10 @@ class ViewControllerEditFavorite: BaseView, UIPickerViewDelegate, UIPickerViewDa
             status.centerXAnchor.constraint(equalTo: imageCharacter.centerXAnchor)
         ])
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(removeFavorite))
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(navigateToMap)),
+            UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(removeFavorite))
+        ]
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(updateFavorite))
     }
     
@@ -160,6 +163,10 @@ class ViewControllerEditFavorite: BaseView, UIPickerViewDelegate, UIPickerViewDa
         
         presenter?.updateCharacter(character: updateCharacter)
         dismiss(animated: true)
+    }
+    
+    @objc private func navigateToMap(){
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

@@ -75,12 +75,10 @@ extension LocationSourceImp : CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("Entro")
         rxEnterRegion.self(region)
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("Salgo")
         rxExitRegion.self(region)
     }
 }

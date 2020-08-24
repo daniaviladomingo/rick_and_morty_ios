@@ -8,12 +8,14 @@
 
 import UIKit
 
-class NotificationManagerImp: NSObject, INotificationManager {
+class NotificationManagerImp: NSObject, INotificationManager, UNUserNotificationCenterDelegate {
     
     private let notificationCenter: UNUserNotificationCenter
+    private let window: UIWindow
     
-    init(notificationCenter: UNUserNotificationCenter) {
+    init(notificationCenter: UNUserNotificationCenter, window: UIWindow) {
         self.notificationCenter = notificationCenter
+        self.window = window
     }
     
     func notify(title: String, msg: String) {
@@ -30,6 +32,15 @@ class NotificationManagerImp: NSObject, INotificationManager {
         // 3
         notificationCenter.add(request)
     }
+}
+
+extension NotificationManagerImp {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+//    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+//    }
 }
 
 

@@ -47,6 +47,11 @@
 		7091AF0024ED377000AB5882 /* LocationDbMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AEFF24ED377000AB5882 /* LocationDbMapper.swift */; };
 		7091AF0224ED767400AB5882 /* INotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AF0124ED767400AB5882 /* INotificationManager.swift */; };
 		7091AF0524ED778900AB5882 /* NotificationManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AF0424ED778900AB5882 /* NotificationManagerImp.swift */; };
+		7091AF0824F3C31000AB5882 /* ViewControllerMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AF0724F3C31000AB5882 /* ViewControllerMap.swift */; };
+		7091AF0A24F3DC0B00AB5882 /* RouterMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AF0924F3DC0B00AB5882 /* RouterMap.swift */; };
+		7091AF1024F3F59400AB5882 /* ContractMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AF0F24F3F59400AB5882 /* ContractMap.swift */; };
+		7091AF1224F3FE6800AB5882 /* PresenterMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AF1124F3FE6800AB5882 /* PresenterMap.swift */; };
+		7091AF1524F4082000AB5882 /* CharacterAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091AF1424F4082000AB5882 /* CharacterAnnotation.swift */; };
 		7094EFAC24DEA3FB00A7A979 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094EFAB24DEA3FB00A7A979 /* BasePresenter.swift */; };
 		7094EFAE24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094EFAD24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift */; };
 		7094EFB124DEBAA400A7A979 /* ICache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7094EFB024DEBAA400A7A979 /* ICache.swift */; };
@@ -131,6 +136,11 @@
 		7091AEFF24ED377000AB5882 /* LocationDbMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDbMapper.swift; sourceTree = "<group>"; };
 		7091AF0124ED767400AB5882 /* INotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INotificationManager.swift; sourceTree = "<group>"; };
 		7091AF0424ED778900AB5882 /* NotificationManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManagerImp.swift; sourceTree = "<group>"; };
+		7091AF0724F3C31000AB5882 /* ViewControllerMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMap.swift; sourceTree = "<group>"; };
+		7091AF0924F3DC0B00AB5882 /* RouterMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterMap.swift; sourceTree = "<group>"; };
+		7091AF0F24F3F59400AB5882 /* ContractMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractMap.swift; sourceTree = "<group>"; };
+		7091AF1124F3FE6800AB5882 /* PresenterMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterMap.swift; sourceTree = "<group>"; };
+		7091AF1424F4082000AB5882 /* CharacterAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAnnotation.swift; sourceTree = "<group>"; };
 		7094EFAB24DEA3FB00A7A979 /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		7094EFAD24DEB83200A7A979 /* AddCharacterToFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCharacterToFavoriteUseCase.swift; sourceTree = "<group>"; };
 		7094EFB024DEBAA400A7A979 /* ICache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICache.swift; sourceTree = "<group>"; };
@@ -338,6 +348,7 @@
 		706BF86E24D3FFDA008751B6 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				7091AF0624F3C2EE00AB5882 /* map */,
 				70D4A2E024E1A5040013BBFE /* favorite */,
 				706BF8C624DDBB9C008751B6 /* favorites */,
 				706BF8BB24DC23E5008751B6 /* character */,
@@ -396,6 +407,26 @@
 				7091AF0424ED778900AB5882 /* NotificationManagerImp.swift */,
 			);
 			path = modules;
+			sourceTree = "<group>";
+		};
+		7091AF0624F3C2EE00AB5882 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				7091AF1324F4080C00AB5882 /* model */,
+				7091AF0F24F3F59400AB5882 /* ContractMap.swift */,
+				7091AF0724F3C31000AB5882 /* ViewControllerMap.swift */,
+				7091AF1124F3FE6800AB5882 /* PresenterMap.swift */,
+				7091AF0924F3DC0B00AB5882 /* RouterMap.swift */,
+			);
+			path = map;
+			sourceTree = "<group>";
+		};
+		7091AF1324F4080C00AB5882 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				7091AF1424F4082000AB5882 /* CharacterAnnotation.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		7094EFAA24DEA3E000A7A979 /* base */ = {
@@ -697,6 +728,8 @@
 				706BF81C24D2D5F8008751B6 /* ViewControllerCharacters.swift in Sources */,
 				706BF81824D2D5F8008751B6 /* AppDelegate.swift in Sources */,
 				70D4A2DF24E183660013BBFE /* IsCharacterFavoriteUseCase.swift in Sources */,
+				7091AF1024F3F59400AB5882 /* ContractMap.swift in Sources */,
+				7091AF1224F3FE6800AB5882 /* PresenterMap.swift in Sources */,
 				70D4A2EC24E2D1700013BBFE /* RemoveCharacterFromFavorites.swift in Sources */,
 				706BF87224D41B29008751B6 /* PresenterCharacters.swift in Sources */,
 				706BF85924D2E74A008751B6 /* Mapper.swift in Sources */,
@@ -709,6 +742,7 @@
 				706BF85C24D2E830008751B6 /* RepositoryImp.swift in Sources */,
 				706BF8BF24DD49E9008751B6 /* ContractCharacter.swift in Sources */,
 				7091AEFC24EBC76700AB5882 /* LocationSourceImp.swift in Sources */,
+				7091AF1524F4082000AB5882 /* CharacterAnnotation.swift in Sources */,
 				706BF8C324DD7E00008751B6 /* GetCharacterUseCase.swift in Sources */,
 				706BF8C124DD4A0C008751B6 /* RouterCharacter.swift in Sources */,
 				706BF87824DAEB37008751B6 /* extension.swift in Sources */,
@@ -722,6 +756,7 @@
 				7091AF0524ED778900AB5882 /* NotificationManagerImp.swift in Sources */,
 				70D4A2DD24E17BBE0013BBFE /* PresenterFavorites.swift in Sources */,
 				706BF87424D43364008751B6 /* RouterCharacters.swift in Sources */,
+				7091AF0A24F3DC0B00AB5882 /* RouterMap.swift in Sources */,
 				706BF86724D2ED9C008751B6 /* CharacterApiMapper.swift in Sources */,
 				706BF87A24DAF3DA008751B6 /* CharacterViewCell.swift in Sources */,
 				706BF8CA24DDBC6C008751B6 /* ContractFavorites.swift in Sources */,
@@ -736,6 +771,7 @@
 				7094EFB124DEBAA400A7A979 /* ICache.swift in Sources */,
 				7091AF0024ED377000AB5882 /* LocationDbMapper.swift in Sources */,
 				706BF85F24D2E851008751B6 /* IRemote.swift in Sources */,
+				7091AF0824F3C31000AB5882 /* ViewControllerMap.swift in Sources */,
 				70D4A2E624E2A1580013BBFE /* PresenterEditFavorite.swift in Sources */,
 				7091AEF724EBC4BC00AB5882 /* ILocationSource.swift in Sources */,
 				706BF86D24D30D05008751B6 /* GetCharactersUseCase.swift in Sources */,

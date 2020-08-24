@@ -9,16 +9,20 @@
 class PresenterEditFavorite: BasePresenter, IPresenterEditFavorite {
     private let view: IViewEditFavorite & IBaseView
     
+    private let router: IRouterEditFavorite
+    
     private let removeCharacterFromFavorite: RemoveCharacterFromFavorite
     private let updateCharacterFavorite: UpdateCharacterFavorite
     private let getCharacterFavoriteUseCase: GetCharacterFavoriteUseCase
     
     init(
         view: IViewEditFavorite & IBaseView,
+        router: IRouterEditFavorite,
         getCharacterFavoriteUseCase: GetCharacterFavoriteUseCase,
         removeCharacterFromFavorite: RemoveCharacterFromFavorite,
         updateCharacterFavorite: UpdateCharacterFavorite) {
         self.view = view
+        self.router = router
         self.getCharacterFavoriteUseCase = getCharacterFavoriteUseCase
         self.removeCharacterFromFavorite = removeCharacterFromFavorite
         self.updateCharacterFavorite = updateCharacterFavorite
@@ -29,7 +33,6 @@ class PresenterEditFavorite: BasePresenter, IPresenterEditFavorite {
             .execute(parameter: id)
             .subscribe(onSuccess: { pair in
                 self.view.showFavorite(character: pair.0)
-                print("\(pair.1)")
             }){ error in
                 self.view.showError(msg: error.localizedDescription)
         }.disposed(by: disposeBag)
@@ -53,5 +56,9 @@ class PresenterEditFavorite: BasePresenter, IPresenterEditFavorite {
             }){ error in
                 self.view.showError(msg: error.localizedDescription)
         }.disposed(by: disposeBag)
+    }
+    
+    func navigateToMap(id: Int) {
+        router.navigateToMap(id: id)
     }
 }

@@ -165,8 +165,11 @@ class ViewControllerEditFavorite: BaseView, UIPickerViewDelegate, UIPickerViewDa
         dismiss(animated: true)
     }
     
-    @objc private func navigateToMap(){
-        
+    @objc private func navigateToMap() {
+        presenter?.navigateToMap(id: id)
+//        let viewControllerMap = ViewControllerMap()
+//        viewControllerMap.modalPresentationStyle =
+//        present(viewControllerMap, animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

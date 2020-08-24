@@ -23,13 +23,13 @@ class RouterCharacters: IRouterCharacters {
         
         let nvc: UINavigationController = UINavigationController()
         
-        let view: IViewCharacters & IBaseView = ViewControllerCharacters()
+        let view: IViewCharacters & IBaseView & UIViewController = ViewControllerCharacters()
         let router: IRouterCharacters = RouterCharacters(navigationController: nvc)
         let presenter: IPresenterCharacters = PresenterCharacters(view: view, router: router, getCharactersUseCase: getCharactersUseCase)
 
         view.presenter = presenter
     
-        nvc.viewControllers = [view as! UIViewController]
+        nvc.viewControllers = [view]
         
         return nvc
     }

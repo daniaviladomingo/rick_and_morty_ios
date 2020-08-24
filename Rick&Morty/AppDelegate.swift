@@ -19,9 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var repository: IRepository!
     
-    var locationSource: ILocationSource!
+    var locationSource: (ILocationSource & CLLocationManagerDelegate)!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
         let charactersMapper: CharacterApiMapper = CharacterApiMapper()
         
         let charactersDbMapper: CharacterDbMapper = CharacterDbMapper()
@@ -33,11 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         repository = RepositoryImp(remote: remote, cache: cache)
         
         let notificationCenter = UNUserNotificationCenter.current()
-        let notificationManager: INotificationManager = NotificationManagerImp(notificationCenter: notificationCenter)
+        let notificationManager: INotificationManager & UNUserNotificationCenterDelegate = NotificationManagerImp(notificationCenter: notificationCenter, window: window!)
+        notificationCenter.delegate = notificationManager
         
         let locationManager = CLLocationManager()
         locationManager.desiredAccuracy = 100
         locationSource = LocationSourceImp(locationManager: locationManager, notificationManager: notificationManager, radius: Double(200))
+        locationManager.delegate = locationSource
         
         let charactersView = RouterCharacters.createModule()
         let favoriteView = RouterFavorites.createModule()
@@ -49,18 +55,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = [charactersView, favoriteView]
         
-        window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
         locationManager.requestAlwaysAuthorization()
         notificationCenter.requestAuthorization(options: [.alert, .sound]) {
             granted, error in
-        }        
-
+        }
+        
         return true
     }
-    
+        
     // MARK: UISceneSession Lifecycle
     
     //    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

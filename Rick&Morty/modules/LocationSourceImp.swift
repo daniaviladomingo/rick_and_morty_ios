@@ -34,8 +34,6 @@ class LocationSourceImp: NSObject, ILocationSource {
     
     func currentLocation() -> Single<Location> {
         return Single<Location>.create { observer in
-            self.locationManager.delegate = self
-
             self.rxLocation = { location in
                 observer(.success(location))
             }
@@ -52,8 +50,10 @@ class LocationSourceImp: NSObject, ILocationSource {
     
     func addRegionListener(location: Location, identifier: String) {
         let center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        locationManager.startMonitoring(for: CLCircularRegion(center: center, radius: radius, identifier: identifier))
-        print("Añado la mierda")
+        let region = CLCircularRegion(center: center, radius: radius, identifier: identifier)
+        region.notifyOnExit = true
+        region.notifyOnEntry = true
+        locationManager.startMonitoring(for: region)
     }
     
     func removeRegionListener(identifier: String) {
@@ -80,9 +80,5 @@ extension LocationSourceImp : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         rxExitRegion.self(region)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
-        print("Empiezo a monitorizar")
     }
 }

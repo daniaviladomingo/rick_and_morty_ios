@@ -12,6 +12,7 @@ protocol IPresenterEditFavorite: class {
     func loadCharacter(id: Int)
     func removeFromFavorite(id: Int)
     func updateCharacter(character: Character)
+    func navigateToMap(id: Int)
 }
 
 protocol IViewEditFavorite: class {
@@ -20,5 +21,5 @@ protocol IViewEditFavorite: class {
 }
 
 protocol IRouterEditFavorite: class {
-    static func createModule(id: Int) -> UIViewController
+    func navigateToMap(id: Int)
 }

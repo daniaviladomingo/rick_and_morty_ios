@@ -8,10 +8,10 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     var window: UIWindow?
     
     var remote: IRemote!
@@ -19,14 +19,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var repository: IRepository!
     
+    var locationSource: (ILocationSource & CLLocationManagerDelegate)!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let charactersMapper: CharacterMapper = CharacterMapper()
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let charactersMapper: CharacterApiMapper = CharacterApiMapper()
+        
         let charactersDbMapper: CharacterDbMapper = CharacterDbMapper()
+        let locationDbMapper: LocationDbMapper = LocationDbMapper()
         
         remote = RemoteImp(endPoint: "https://rickandmortyapi.com/api/", mapper: charactersMapper)
-        cache = CacheImp(persistenceContainer: persistentContainer, mapper: charactersDbMapper)
+        cache = CacheImp(persistenceContainer: persistentContainer, mapper: charactersDbMapper, locationMapper: locationDbMapper)
         
         repository = RepositoryImp(remote: remote, cache: cache)
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        let notificationManager: INotificationManager & UNUserNotificationCenterDelegate = NotificationManagerImp(notificationCenter: notificationCenter, window: window!)
+        notificationCenter.delegate = notificationManager
+        
+        let locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = 100
+        locationSource = LocationSourceImp(locationManager: locationManager, notificationManager: notificationManager, radius: Double(200))
+        locationManager.delegate = locationSource
         
         let charactersView = RouterCharacters.createModule()
         let favoriteView = RouterFavorites.createModule()
@@ -38,13 +55,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = [charactersView, favoriteView]
         
-        window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
+        locationManager.requestAlwaysAuthorization()
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) {
+            granted, error in
+        }
+        
         return true
     }
-    
+        
     // MARK: UISceneSession Lifecycle
     
     //    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -103,6 +124,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
 }
 
+
+//extension AppDelegate: CLLocationManagerDelegate {
+//  func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
+//    // create CLLocation from the coordinates of CLVisit
+//    let clLocation = CLLocation(latitude: visit.coordinate.latitude, longitude: visit.coordinate.longitude)
+//
+//    // Get location description
+//  }
+//
+//  func newVisitReceived(_ visit: CLVisit, description: String) {
+////    let location = Location(visit: visit, descriptionString: description)
+//
+//    // Save location to disk
+//  }
+//}

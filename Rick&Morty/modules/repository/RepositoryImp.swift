@@ -10,7 +10,6 @@ import Foundation
 import RxSwift
 
 class RepositoryImp: IRepository {
-
     private let remote: IRemote
     private let cache: ICache
     
@@ -27,8 +26,8 @@ class RepositoryImp: IRepository {
         return remote.getCharacter(id: id)
     }
     
-    func addCharacterToFavorite(character: Character) -> Completable {
-        return cache.addCharacterToFavorite(character: character)
+    func addCharacterToFavorite(character: Character, location: Location?) -> Completable {
+        return cache.addCharacterToFavorite(character: character, location: location)
     }
     
     func removeCharacterFromFavorite(id: Int) -> Completable {
@@ -40,7 +39,7 @@ class RepositoryImp: IRepository {
     }
     
     
-    func getCharacterFavorite(id: Int) -> Single<Character> {
+    func getCharacterFavorite(id: Int) -> Single<(Character, Location)> {
         return cache.getCharacterFavorite(id: id)
     }
     
